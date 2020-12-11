@@ -110,19 +110,18 @@ class ItemController extends Controller
 
 
     public function getItem(){
-        $user = Auth::user();
-        $userId = $user->id;
         
-        $itemUser = Item::where('userId', $userId)->first();
-
-        if($itemUser){
             $items = Item::all();
-            return response()->json(['error'=>false, "message"=> $items], 200);
-        }else{
-            return response()->json(['error'=> true, 'error_message' => "Tiada item milik user!"], 401);
+            if($items){
+                return response()->json(['error'=>false, "message"=> $items], 200);
 
-        }
-        return response()->json(['error' => true, 'error_message' => 'Internal Server Error'], 500);
+            }else{
+                return response()->json(['error' => true, 'error_message' => 'Internal Server Error'], 500);
+
+            }
+            
+        
+       
         
     }
 
