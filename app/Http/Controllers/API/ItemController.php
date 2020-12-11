@@ -113,7 +113,7 @@ class ItemController extends Controller
         
             $items = Item::all();
             if($items){
-                return response()->json(['error'=>false, "message"=> $items], 200);
+                return response()->json(['error'=>false,  $items], 200);
 
             }else{
                 return response()->json(['error' => true, 'error_message' => 'Internal Server Error'], 500);

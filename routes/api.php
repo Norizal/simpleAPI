@@ -23,13 +23,13 @@ Route::post('login', 'API\UserController@login');
 
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::get('getItemTest', 'API\ItemController@getItemTest');
 
-Route::post('createItem', 'API\ItemController@create');
-Route::post('updateItem/{id}', 'API\ItemController@update');
-Route::get('getItem', 'API\ItemController@getItem');
-Route::get('getItemById/{id}', 'API\ItemController@getItemById');
-Route::post('deleteItem/{id}', 'API\ItemController@deleteItem');
+    Route::get('getItemTest', 'API\ItemController@getItemTest');
+    Route::post('createItem', 'API\ItemController@create');
+    Route::post('updateItem/{id}', 'API\ItemController@update');
+    Route::get('getItem', 'API\ItemController@getItem');
+    Route::get('getItemById/{id}', 'API\ItemController@getItemById');
+    Route::post('deleteItem/{id}', 'API\ItemController@deleteItem');
 
 
 
