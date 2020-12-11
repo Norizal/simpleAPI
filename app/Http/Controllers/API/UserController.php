@@ -77,12 +77,12 @@ class UserController extends Controller
                 if(Auth::attempt(['email'=> $email, 'password'=> $password])){
                     $user = Auth::user();
 
-                    $success['token'] = $user->createToken('MyApp')->accessToken;
-                    $success['id'] = $user->id;
-                    $success['name'] = $user->name;
-                    $success['email'] = $user->email;
+                    $token = $user->createToken('MyApp')->accessToken;
+                    // $success['id'] = $user->id;
+                    // $success['name'] = $user->name;
+                    // $success['email'] = $user->email;
 
-                    return response()->json(['error' => false, 'message' => "Log masuk berjaya", 'success' => $success], 200);
+                    return response()->json(['error' => false, 'message' => "Log masuk berjaya", 'token' => $token], 200);
 
                 }else{
                     return response()->json(['error'=> true, 'error_message' => "Maklumat salah!"], 401);
